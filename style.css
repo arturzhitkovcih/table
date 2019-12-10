@@ -4,8 +4,8 @@
     padding: 0;
 }
 .table {
-    width: 180px;
-    height: 180px;
+    width: 600px;
+    height: 600px;
     display: flex;
     flex-wrap: wrap;
 }
