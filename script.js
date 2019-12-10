@@ -13,7 +13,6 @@ clearAllCell();
 
 function clearAllCell () {
     cellArray.forEach(item => {
-        console.log(item);
         removeCell(item)
     })
 }
