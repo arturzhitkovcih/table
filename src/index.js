@@ -9,7 +9,7 @@ let state = {
     timeAfterLaunch: 0
 };
 
-let timer = 0;
+let timer = null;
 
 function start() {
     let { gameStatus } = state;
@@ -62,12 +62,11 @@ function launch() {
             timeAfterLaunch
         });
     }
-    console.log(timeAfterLaunch)
 
     timer = setTimeout(launch, 50);
 }
 
-function getRandomNumber(min, max) {
+function getRandomNumber (min, max) {
     return Math.round( min - 0.5 + Math.random() * (max - min + 1));
 }
 
@@ -75,6 +74,7 @@ function renderTable (countColumn, countRow) {
     const countCell = countColumn * countRow;
     const table = document.createElement("div");
     let widthTable = 40 * countColumn;
+
     table.classList.add("table");
     table.style.width = `${widthTable}px`;
     table.id = "table";
@@ -110,7 +110,6 @@ function render() {
     titleElement.innerText = title;
     button.innerText = "Start";
     button.id = "button";
-
     cellsArray = Array.from(table.childNodes);
     clearCellsArray = cellsArray;
 
@@ -143,6 +142,7 @@ table.addEventListener('click', (event) => {
     const cell = event.target;
     const number = parseInt(cell.innerText) | 0;
     let { sum, gameStatus } = state;
+
     if (number && gameStatus ) {
         const sumTitle = document.getElementById('sumTitle');
         sum += number;
@@ -175,6 +175,7 @@ function getClearCell() {
 
 function fillCell() {
     let { clearCellsArray, cellsForRemove, gameStatus } = state;
+
     if (clearCellsArray.length > 0) {
         const randomCell = getRandomNumber(0, clearCellsArray.length - 1);
         const cell = clearCellsArray[randomCell];
@@ -190,13 +191,12 @@ function fillCell() {
 
     } else {
         gameStatus = false
+
         setState({
             gameStatus
         });
         alert("Game over(((")
     }
-
-
 }
 
 function removeCell() {
@@ -212,16 +212,6 @@ function removeCell() {
     setState({
         cellsForRemove
     });
-    // if (fold) {
-    //     const number = parseInt(cell.textContent) | 0;
-    //
-    //     sum += number;
-    //     printSum();
-    // }
-    //
-    // cell.classList.remove('fill');
-    // cell.textContent = "";
-    // getClearCell();
 }
 
 
