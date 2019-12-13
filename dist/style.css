@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
+.table {
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    height: auto;
+    border: 1px solid #222222;
+    box-sizing: content-box;
+}
+
+.table .cell {
+    border: 1px solid #222222;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.table .cell.fill {
+    background: rgba(181, 121, 5, 0.22);
+}
+
+button {
+    margin-top: 15px;
+}
